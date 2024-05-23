@@ -54,7 +54,7 @@ func (h *Handler) createOrder(ps []types.Product, items []types.CartItem, userId
 			OrderId:   orderId,
 			ProductId: item.ProductId,
 			Quantity:  item.Quantity,
-			Price:     float64(productMap[item.ProductId].Price),
+			Price:     productMap[item.ProductId].Price,
 		})
 	}
 
@@ -83,7 +83,7 @@ func calculateTotalPrice(cartItems []types.CartItem, products map[int]types.Prod
 	var total float64
 	for _, cartItem := range cartItems {
 		product := products[cartItem.ProductId]
-		total += float64(product.Price) * float64(cartItem.Quantity)
+		total += product.Price * float64(cartItem.Quantity)
 	}
 	return total
 }

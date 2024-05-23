@@ -44,7 +44,7 @@ type Product struct {
 	Name        string    `json:"name"`
 	Description string    `json:"description"`
 	Image       string    `json:"image"`
-	Price       int       `json:"price"`
+	Price       float64   `json:"price"`
 	Quantity    int       `json:"quantity"`
 	CreatedAt   time.Time `json:"created_at"`
 }
@@ -66,11 +66,11 @@ type RegisterUserPayload struct {
 }
 
 type CreateProductPayload struct {
-	Name        string `json:"name" validate:"required"`
-	Description string `json:"description" validate:"required"`
-	Image       string `json:"image" validate:"required"`
-	Price       int    `json:"price" validate:"required"`
-	Quantity    int    `json:"quantity" validate:"required"`
+	Name        string  `json:"name" validate:"required"`
+	Description string  `json:"description" validate:"required"`
+	Image       string  `json:"image" validate:"required"`
+	Price       float64 `json:"price" validate:"required"`
+	Quantity    int     `json:"quantity" validate:"required"`
 }
 
 type LoginUserPayload struct {
